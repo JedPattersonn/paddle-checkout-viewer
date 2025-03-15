@@ -22,7 +22,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 type CheckoutVariant = "multi-page" | "one-page";
 
-interface CustomizationOptions {
+interface CustomisationOptions {
   theme: "light" | "dark";
   displayMode: "inline" | "overlay";
   locale: string;
@@ -59,9 +59,9 @@ const SHADOW_PRESETS = {
   xl: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
 };
 
-export default function CustomizePage() {
+export default function CustomisePage() {
   const [paddle, setPaddle] = useState<Paddle | null>(null);
-  const [options, setOptions] = useState<CustomizationOptions>({
+  const [options, setOptions] = useState<CustomisationOptions>({
     theme: "light",
     displayMode: "inline",
     locale: "en",
@@ -79,7 +79,7 @@ export default function CustomizePage() {
 
   const openCheckout = async (
     paddleInstance: Paddle,
-    updatedOptions: CustomizationOptions
+    updatedOptions: CustomisationOptions
   ) => {
     const frameStyle = `
       width: 100%;
@@ -107,7 +107,7 @@ export default function CustomizePage() {
     });
   };
 
-  const initializeCheckout = async (updatedOptions: CustomizationOptions) => {
+  const initializeCheckout = async (updatedOptions: CustomisationOptions) => {
     if (
       !process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN ||
       !process.env.NEXT_PUBLIC_PADDLE_ENV
@@ -130,7 +130,7 @@ export default function CustomizePage() {
     }
   };
 
-  const updateCheckout = async (newOptions: Partial<CustomizationOptions>) => {
+  const updateCheckout = async (newOptions: Partial<CustomisationOptions>) => {
     const isDisplayModeChange =
       newOptions.displayMode !== undefined &&
       newOptions.displayMode !== options.displayMode;
@@ -186,12 +186,12 @@ export default function CustomizePage() {
           <h1
             className={`text-3xl font-bold ${options.theme === "dark" ? "text-white" : "text-gray-900"}`}
           >
-            Paddle Checkout Customizer
+            Paddle Checkout Customiser
           </h1>
           <p
             className={`mt-2 ${options.theme === "dark" ? "text-gray-300" : "text-gray-600"}`}
           >
-            Customize your checkout experience in real-time
+            Customise your checkout experience in real-time
           </p>
         </header>
 
@@ -203,7 +203,7 @@ export default function CustomizePage() {
               <CardTitle
                 className={`${options.theme === "dark" ? "text-white" : "text-gray-900"}`}
               >
-                Customization Controls
+                Customisation Controls
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6">
